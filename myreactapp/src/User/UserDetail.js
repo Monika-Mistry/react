@@ -1,34 +1,81 @@
 import React, { Component } from 'react';
+import { Button, InputGroup, InputGroupAddon, Input } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCity, faCalendarAlt, faUserAlt, faHiking } from '@fortawesome/free-solid-svg-icons';
 
 export class UserDetail extends Component {
     constructor() {
         super();
 
         this.state = {
-            city: "Salford"
+            city: "Salford",
+            name: "John Doe",
+            age: 100,
+            dob: "01/01/1990"
         }
     }
 
     updateCity = e => {
         e.preventDefault();
         this.setState({
-            city: document.getElementById("input").value
+            city: document.getElementById("city").value
+        })
+    }
+
+    updateName = e => {
+        e.preventDefault();
+        this.setState({
+            name: document.getElementById("name").value
+        })
+    }
+
+    updateAge = e => {
+        e.preventDefault();
+        this.setState({
+            age: document.getElementById("age").value
+        })
+    }
+
+    updateDob = e => {
+        e.preventDefault();
+        this.setState({
+            dob: document.getElementById("dob").value
         })
     }
 
     render() {
         return (
-            <div>
-                <p>First Name: {this.props.userData.firstName}</p>
-                <p>Last Name: {this.props.userData.lastName}</p>
-                <p>Date of Birth: {this.props.userData.dob}</p>
-                <p>City: {this.state.city}</p>
+            <div className="container">
+                <p><FontAwesomeIcon icon={faUserAlt} /> {this.state.name}</p>
+                <p><FontAwesomeIcon icon={faCalendarAlt} /> {this.state.dob}</p>
+                <p><FontAwesomeIcon icon={faHiking} /> {this.state.age}</p>
+                <p><FontAwesomeIcon icon={faCity} /> {this.state.city}</p>
 
-                <form>
-                    <label>Change city: </label>
-                    <input id="input" type="text"></input>
-                    <button onClick={this.updateCity}>Submit</button>
-                </form>
+                <InputGroup>
+                    <Input id="name" type="text" placeholder="Enter your name"></Input>
+                    <InputGroupAddon addonType="append">
+                        <Button onClick={this.updateName} >Submit</Button>
+                    </InputGroupAddon>
+                </InputGroup>
+                <InputGroup>
+                    <InputGroupAddon addonType="prepend">D.O.B</InputGroupAddon>
+                    <Input id="dob" type="text" placeholder="dd/mm/yyyy"></Input>
+                    <InputGroupAddon addonType="append">
+                        <Button onClick={this.updateAge} >Submit</Button>
+                    </InputGroupAddon>
+                </InputGroup>
+                <InputGroup>
+                    <Input id="age" type="number" placeholder="Enter your age"></Input>
+                    <InputGroupAddon addonType="append">
+                        <Button onClick={this.updateDob} >Submit</Button>
+                    </InputGroupAddon>
+                </InputGroup>
+                <InputGroup>
+                    <Input id="city" type="text" placeholder="Enter your city"></Input>
+                    <InputGroupAddon addonType="append">
+                        <Button onClick={this.updateCity} >Submit</Button>
+                    </InputGroupAddon>
+                </InputGroup>
 
             </div>
 
