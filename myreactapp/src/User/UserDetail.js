@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button, InputGroup, InputGroupAddon, Input } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCity, faCalendarAlt, faUserAlt, faHiking } from '@fortawesome/free-solid-svg-icons';
+import { string } from 'prop-types'
 
 export class UserDetail extends Component {
     constructor() {
@@ -13,6 +14,13 @@ export class UserDetail extends Component {
             age: 100,
             dob: "01/01/1990"
         }
+    }
+    defaultProps = {
+        header: "User"
+    }
+    propTypes = {
+        header:
+            string.isRequired
     }
 
     updateCity = e => {
@@ -46,6 +54,7 @@ export class UserDetail extends Component {
     render() {
         return (
             <div className="container">
+                <h1>{this.props.header}</h1>
                 <p><FontAwesomeIcon icon={faUserAlt} /> {this.state.name}</p>
                 <p><FontAwesomeIcon icon={faCalendarAlt} /> {this.state.dob}</p>
                 <p><FontAwesomeIcon icon={faHiking} /> {this.state.age}</p>

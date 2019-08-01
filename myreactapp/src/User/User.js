@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { UserDetail } from './UserDetail'
 
-export class User extends Component {
+export function User(props) {
+   const header = "Hello";
+    return (
+        <div>
+            <UserDetail  />
+        </div>
 
-    render() {
-        return (
-            <div>
-                <h1>User</h1>
-                <UserDetail />
-            </div>
-
-        );
-    }
+    );
 }
