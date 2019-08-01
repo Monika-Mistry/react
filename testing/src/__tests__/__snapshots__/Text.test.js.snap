@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders a text 1`] = `
+<div>
+  <p>
+    Text Component
+  </p>
+  <p>
+    Some more content
+  </p>
+  <p>
+    Content
+  </p>
+  <p>
+    ksfcbhksdfsdffssdfsdfsajawebk
+  </p>
+</div>
+`;
